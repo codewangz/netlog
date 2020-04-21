@@ -10,7 +10,7 @@ import (
 )
 var serverAddr,projectName,dir string
 
-func Read(con net.Conn){
+func readData(con net.Conn){
 	data := make([]byte, 1000)
 	for{
 		n, err := con.Read(data)
@@ -65,7 +65,7 @@ func main(){
 			fmt.Println(err)
 			continue
 		}
-		go Read(con)
+		go readData(con)
 	}
 
 }
